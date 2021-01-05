@@ -5,16 +5,23 @@ import { loadGames } from "../actions/gamesActions";
 import Game from "../components/Game";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 const Home = () => {
+	const location = useLocation();
+
+	const pathId = location.pathname.split("/")[2];
+
+	// get the games
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(loadGames());
 	}, [dispatch]);
 	const { popular, newGames, upcoming } = useSelector((state) => state.games);
+
 	return (
 		<GameList>
-			<GameDetail />
+			{pathId && <GameDetail />}
 			<h2>Upcoming Games</h2>
 			<Games>
 				{upcoming.map((game) => (
@@ -27,7 +34,6 @@ const Home = () => {
 					/>
 				))}
 			</Games>
-
 			<h2>Popular Games</h2>
 			<Games>
 				{popular.map((game) => (
@@ -40,7 +46,6 @@ const Home = () => {
 					/>
 				))}
 			</Games>
-
 			<h2>New Games</h2>
 			<Games>
 				{newGames.map((game) => (
