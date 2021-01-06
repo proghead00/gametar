@@ -1,4 +1,4 @@
-# Gametar
+# Gametar 🎮
 ## React webapp with Redux and Framer Motion for animations that show informations about various games
 
 <div align="center">
@@ -10,3 +10,4 @@
 
 ![Screenshot_20210106_164045](https://user-images.githubusercontent.com/55017730/103762470-59387a00-503e-11eb-9651-c0c831f5814a.png)
 
+# [Live Site](https://gametar.netlify.app/)
