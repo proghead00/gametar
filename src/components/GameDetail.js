@@ -1,26 +1,21 @@
 import React from "react";
-//Styling and Animation
 import styled from "styled-components";
 import { motion } from "framer-motion";
-//Redux
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { smallImage } from "../util";
-//IMAGES
 import playstation from "../img/playstation.svg";
 import steam from "../img/steam.svg";
 import xbox from "../img/xbox.svg";
 import nintendo from "../img/nintendo.svg";
 import apple from "../img/apple.svg";
 import gamepad from "../img/gamepad.svg";
-//Star Images
 import starEmpty from "../img/star-empty.png";
 import starFull from "../img/star-full.png";
 
 const GameDetail = ({ pathId }) => {
 	const history = useHistory();
 
-	//Exit Detail
 	const exitDetailHander = (e) => {
 		const element = e.target;
 		if (element.classList.contains("shadow")) {
@@ -28,7 +23,6 @@ const GameDetail = ({ pathId }) => {
 			history.push("/");
 		}
 	};
-	//Get Stars
 	const getStars = () => {
 		const stars = [];
 		const rating = Math.floor(game.rating);
@@ -42,7 +36,6 @@ const GameDetail = ({ pathId }) => {
 		return stars;
 	};
 
-	//GET PLATFORM IMAGES
 	const getPlatform = (platform) => {
 		switch (platform) {
 			case "PlayStation 4":
@@ -60,8 +53,8 @@ const GameDetail = ({ pathId }) => {
 		}
 	};
 
-	//Data
 	const { screen, game, isLoading } = useSelector((state) => state.detail);
+
 	return (
 		<>
 			{!isLoading && (
